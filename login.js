@@ -11,7 +11,7 @@ async function Login() {
     email: email.value,
     password: password.value,
   };
-  var res = await fetch("http://localhost:3000/login", {
+  var res = await fetch("https://urlshortner-backend-assignment.herokuapp.com/login", {
     method: "POST",
     body: JSON.stringify(bodydata),
     headers: {
