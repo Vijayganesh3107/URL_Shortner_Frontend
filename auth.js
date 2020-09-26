@@ -6,14 +6,17 @@ var token = sessiondata.split("Email")[0];
 async function Auth() {
   var bodydata = { email: email };
   var p = document.getElementById("p");
-  var req = await fetch(`https://urlshortner-backend-assignment.herokuapp.com/users/auth/${email}`, {
-    method: "PUT",
-    body: JSON.stringify(bodydata),
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: token,
-    },
-  });
+  var req = await fetch(
+    `https://urlshortner-backend-assignment.herokuapp.com/users/auth/${email}`,
+    {
+      method: "PUT",
+      body: JSON.stringify(bodydata),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    }
+  );
   var data = await req.json();
 
   if (data.message == "User Account successfully activated") {
