@@ -28,13 +28,16 @@ async function RegisterUser() {
     email: email.value,
     password: password.value,
   };
-  var req = await fetch("http://localhost:3000/users/register", {
-    method: "POST",
-    body: JSON.stringify(bodydata),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  var req = await fetch(
+    "https://urlshortner-backend-assignment.herokuapp.com/users/register",
+    {
+      method: "POST",
+      body: JSON.stringify(bodydata),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   var data = await req.json();
   var token = data.token;
 
