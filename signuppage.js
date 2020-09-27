@@ -45,5 +45,7 @@ async function RegisterUser() {
     alert3.classList.remove("displaynone");
     localStorage.setItem("JWToken", `${token}Email${email.value}`);
     location.href = "auth.html";
+  } else {
+    alert(data.message);
   }
 }

@@ -26,13 +26,16 @@ async function ChangePassword() {
     email: email,
     password: password.value,
   };
-  var req = await fetch("https://urlshortner-backend-assignment.herokuapp.com/user/changepassword", {
-    method: "PUT",
-    body: JSON.stringify(bodydata),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  var req = await fetch(
+    "https://urlshortner-backend-assignment.herokuapp.com/user/changepassword",
+    {
+      method: "PUT",
+      body: JSON.stringify(bodydata),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   var data = await req.json();
   if (data.message == "Sucessfully updated the password") {
     alert3.classList.remove("displaynone");

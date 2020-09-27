@@ -1,4 +1,7 @@
 var btn = document.getElementById("btn");
+var alert1 = document.querySelector(".alert1");
+var alert2 = document.querySelector(".alert2");
+
 btn.addEventListener("click", () => {
   ValidateEmail();
 });
@@ -18,8 +21,15 @@ async function ValidateEmail() {
     }
   );
   var data = await req.json();
+
   if (data.message == "User Present") {
+    alert1.classList.add("displaynone");
     localStorage.setItem("ValidateEmail", email.value);
-    location.href = "changepassword.html";
+    localStorage.setItem("ValidatepasswordToken", `${data.token}`);
+    alert2.classList.remove("displaynone");
+    location.href = "validationforforgetpassword.html";
+  } else {
+    alert2.classList.add("displaynone");
+    alert1.classList.remove("displaynone");
   }
 }
