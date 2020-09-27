@@ -1,12 +1,10 @@
 var email = localStorage.getItem("ValidateEmail");
 var token = localStorage.getItem("ValidatepasswordToken");
 var p = document.getElementById("p");
-p.innerHTML = email;
-
 async function ValidateForgetpassword() {
   try {
     var res = await fetch(
-      `http://localhost:3000/user/forgetpasswordauth/${email}`,
+      `https://urlshortner-backend-assignment.herokuapp.com/user/forgetpasswordauth/${email}`,
       {
         method: "POST",
         headers: {
