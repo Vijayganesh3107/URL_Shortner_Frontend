@@ -5,8 +5,9 @@ var alert2 = document.querySelector(".alert2");
 btn.addEventListener("click", () => {
   ValidateEmail();
 });
-
 async function ValidateEmail() {
+  alert2.classList.add("displaynone");
+  alert1.classList.add("displaynone");
   var email = document.getElementById("email");
   var bodydata = { email: email.value };
 
