@@ -27,7 +27,7 @@ async function RegisterUser() {
     password: password.value,
   };
   var req = await fetch(
-    "https://urlshortner-backend-assignment.herokuapp.com/users/register",
+    "https://vijay-urlshortner-backend.herokuapp.com/users/register",
     {
       method: "POST",
       body: JSON.stringify(bodydata),

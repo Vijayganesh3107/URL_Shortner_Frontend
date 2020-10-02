@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
 async function insertAll() {
   var bodydata = { email: email };
   var data = await fetch(
-    "https://urlshortner-backend-assignment.herokuapp.com/getlongURL",
+    "https://vijay-urlshortner-backend.herokuapp.com/getlongURL",
     {
       method: "POST",
       body: JSON.stringify(bodydata),
@@ -69,7 +69,7 @@ async function DataInsert() {
       email: email,
     };
     var req = await fetch(
-      "https://urlshortner-backend-assignment.herokuapp.com/longURL",
+      "https://vijay-urlshortner-backend.herokuapp.com/longURL",
       {
         method: "POST",
         body: JSON.stringify(data1),
@@ -93,7 +93,7 @@ async function DataInsert() {
 async function GetLinks() {
   var bodydata = { email: email };
   var data = await fetch(
-    "https://urlshortner-backend-assignment.herokuapp.com/getlongURL",
+    "https://vijay-urlshortner-backend.herokuapp.com/getlongURL",
     {
       method: "POST",
       body: JSON.stringify(bodydata),
@@ -138,7 +138,7 @@ async function UpdateCount(longurl) {
     var bodydata = { longURL: longurl, email: email };
     console.log(bodydata);
     var res = await fetch(
-      "https://urlshortner-backend-assignment.herokuapp.com/longURL",
+      "https://vijay-urlshortner-backend.herokuapp.com/longURL",
       {
         method: "PUT",
         body: JSON.stringify(bodydata),

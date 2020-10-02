@@ -9,7 +9,7 @@ async function ValidateEmail() {
   console.log(bodydata);
 
   var req = await fetch(
-    "https://urlshortner-backend-assignment.herokuapp.com/user/forgotpassword",
+    "https://vijay-urlshortner-backend.herokuapp.com/user/forgotpassword",
     {
       method: "POST",
       body: JSON.stringify(bodydata),

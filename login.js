@@ -12,7 +12,7 @@ async function Login() {
     password: password.value,
   };
   var res = await fetch(
-    "https://urlshortner-backend-assignment.herokuapp.com/login",
+    "https://vijay-urlshortner-backend.herokuapp.com/login",
     {
       method: "POST",
       body: JSON.stringify(bodydata),

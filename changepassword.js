@@ -27,7 +27,7 @@ async function ChangePassword() {
     password: password.value,
   };
   var req = await fetch(
-    `https://urlshortner-backend-assignment.herokuapp.com/user/changepassword/${email}`,
+    `https://vijay-urlshortner-backend.herokuapp.com/user/changepassword/${email}`,
     {
       method: "PUT",
       body: JSON.stringify(bodydata),

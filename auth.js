@@ -9,9 +9,9 @@ async function Auth() {
   var bodydata = { email: email };
   var p = document.getElementById("p");
   var req = await fetch(
-    `https://urlshortner-backend-assignment.herokuapp.com/users/auth/${email}`,
+    `https://vijay-urlshortner-backend.herokuapp.com/users/auth/${email}`,
     {
-      method: "PUT",
+      method: "GET",
       body: JSON.stringify(bodydata),
       headers: {
         "Content-Type": "application/json",
