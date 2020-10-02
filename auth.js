@@ -11,7 +11,7 @@ async function Auth() {
   var req = await fetch(
     `https://vijay-urlshortner-backend.herokuapp.com/users/auth/${email}`,
     {
-      method: "GET",
+      method: "PUT",
       body: JSON.stringify(bodydata),
       headers: {
         "Content-Type": "application/json",
