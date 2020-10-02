@@ -24,6 +24,7 @@ async function Login() {
   var data = await res.json();
   if (data.message == "success") {
     localStorage.setItem("Email", data.email);
+    localStorage.setItem("LoginToken", data.token);
     location.href = "dashboard.html";
   } else {
     alert(data.message);

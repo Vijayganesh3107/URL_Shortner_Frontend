@@ -2,6 +2,8 @@ var tbody = document.getElementById("tbody");
 var h3 = document.querySelector(".displaynone");
 var email = localStorage.getItem("Email");
 var p = document.getElementById("p");
+var token = localStorage.getItem("LoginToken");
+console.log(token);
 p.innerHTML = `Logged in by:${email}`;
 document.getElementById("searchbtn").addEventListener("click", () => {
   var longURL = document.getElementById("longurl");
@@ -26,6 +28,7 @@ async function insertAll() {
       body: JSON.stringify(bodydata),
       headers: {
         "Content-Type": "application/json",
+        Authorization: token,
       },
     }
   );
@@ -72,12 +75,12 @@ async function DataInsert() {
         body: JSON.stringify(data1),
         headers: {
           "Content-Type": "application/json",
+          Authorization: token,
         },
       }
     );
     var data = await req.json();
     if (data.message == "Data Inserted") {
-      h3.innerHTML = ``;
       GetLinks();
     } else {
       h3.innerHTML = data.message;
@@ -96,6 +99,7 @@ async function GetLinks() {
       body: JSON.stringify(bodydata),
       headers: {
         "Content-Type": "application/json",
+        Authorization: token,
       },
     }
   );
@@ -132,7 +136,7 @@ async function GetLinks() {
 async function UpdateCount(longurl) {
   try {
     var bodydata = { longURL: longurl, email: email };
-
+    console.log(bodydata);
     var res = await fetch(
       "https://urlshortner-backend-assignment.herokuapp.com/longURL",
       {
@@ -140,6 +144,7 @@ async function UpdateCount(longurl) {
         body: JSON.stringify(bodydata),
         headers: {
           "Content-Type": "application/json",
+          Authorization: token,
         },
       }
     );

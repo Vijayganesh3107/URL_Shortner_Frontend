@@ -5,6 +5,7 @@ var alert1 = document.querySelector(".alert1");
 var alert2 = document.querySelector(".alert2");
 var alert3 = document.querySelector(".alert3");
 var email = localStorage.getItem("ValidateEmail");
+console.log(email);
 submitbtn.addEventListener("click", () => {
   if (password.value !== repassword.value) {
     alert1.classList.remove("displaynone");
@@ -23,11 +24,10 @@ submitbtn.addEventListener("click", () => {
 
 async function ChangePassword() {
   var bodydata = {
-    email: email,
     password: password.value,
   };
   var req = await fetch(
-    "https://urlshortner-backend-assignment.herokuapp.com/user/changepassword",
+    `https://urlshortner-backend-assignment.herokuapp.com/user/changepassword/${email}`,
     {
       method: "PUT",
       body: JSON.stringify(bodydata),

@@ -13,24 +13,16 @@ submitbtn.addEventListener("click", () => {
     if (password.value == "" && repassword.value == "") {
       alert2.classList.remove("displaynone");
       alert1.classList.add("displaynone");
-      if (email.value == "") {
-        alert("The Name field or the Email Field is empty");
-      }
     } else {
-      if (email.value == "") {
-        alert("The Name field or the Email Field is empty");
-      } else {
-        RegisterUser();
-        alert1.classList.add("displaynone");
-        //   location.href = "login.html";
-      }
+      RegisterUser();
+      alert1.classList.add("displaynone");
+      //   location.href = "login.html";
     }
   }
 });
 
 async function RegisterUser() {
   var bodydata = {
-    name: name.value,
     email: email.value,
     password: password.value,
   };
@@ -50,8 +42,6 @@ async function RegisterUser() {
   if (data.message != "User Already with same Registered Email-ID") {
     alert3.classList.remove("displaynone");
     localStorage.setItem("JWToken", `${token}Email${email.value}`);
-    // location.href = "auth.html";
-  } else {
-    alert(data.message);
+    location.href = "auth.html";
   }
 }
