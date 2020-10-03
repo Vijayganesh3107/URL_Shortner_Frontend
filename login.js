@@ -11,16 +11,13 @@ async function Login() {
     email: email.value,
     password: password.value,
   };
-  var res = await fetch(
-    "https://vijay-urlshortner-backend.herokuapp.com/login",
-    {
-      method: "POST",
-      body: JSON.stringify(bodydata),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  var res = await fetch("http://localhost:3000/login", {
+    method: "POST",
+    body: JSON.stringify(bodydata),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
   var data = await res.json();
   if (data.message == "success") {
     localStorage.setItem("Email", data.email);

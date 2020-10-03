@@ -27,17 +27,14 @@ async function ChangePassword() {
     password: password.value,
     email,
   };
-  var req = await fetch(
-    `https://vijay-urlshortner-backend.herokuapp.com/user/changepassword/${passwordtoken}`,
-    {
-      method: "PUT",
-      body: JSON.stringify(bodydata),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: passwordtoken,
-      },
-    }
-  );
+  var req = await fetch(`http://localhost:3000/user/changepassword`, {
+    method: "PUT",
+    body: JSON.stringify(bodydata),
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: passwordtoken,
+    },
+  });
   var data = await req.json();
   if (data.message == "Sucessfully updated the password") {
     alert3.classList.remove("displaynone");
