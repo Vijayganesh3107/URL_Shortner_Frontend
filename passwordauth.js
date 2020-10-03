@@ -1,5 +1,5 @@
 var email = localStorage.getItem("ValidateEmail");
-var passwordtoken = location.getItem("PasswordToken");
+var passwordtoken = localStorage.getItem("PasswordToken");
 
 async function AuthPassword() {
   var req = await fetch(`http://localhost:3000/user/changepassword/${email}`, {
