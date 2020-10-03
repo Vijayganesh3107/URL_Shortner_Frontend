@@ -8,16 +8,13 @@ async function ValidateEmail() {
   var bodydata = { email: email.value };
   console.log(bodydata);
 
-  var req = await fetch(
-    "https://vijay-urlshortner-backend.herokuapp.com/user/forgotpassword",
-    {
-      method: "POST",
-      body: JSON.stringify(bodydata),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
+  var req = await fetch("http://localhost:3000/user/forgotpassword", {
+    method: "POST",
+    body: JSON.stringify(bodydata),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
   var data = await req.json();
   console.log(data);
   if (data.message == "User Present") {
