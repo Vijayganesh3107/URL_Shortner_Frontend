@@ -21,14 +21,17 @@ window.addEventListener("load", () => {
 
 async function insertAll() {
   var bodydata = { email: email };
-  var data = await fetch("http://localhost:3000/getlongURL", {
-    method: "POST",
-    body: JSON.stringify(bodydata),
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: token,
-    },
-  });
+  var data = await fetch(
+    "https://vijay-urlshortner-backend.herokuapp.com/getlongURL",
+    {
+      method: "POST",
+      body: JSON.stringify(bodydata),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    }
+  );
 
   var result = await data.json();
   let len = result.length;
@@ -65,14 +68,17 @@ async function DataInsert() {
       longURL: `${document.getElementById("longurl").value}`,
       email: email,
     };
-    var req = await fetch("http://localhost:3000/longURL", {
-      method: "POST",
-      body: JSON.stringify(data1),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-    });
+    var req = await fetch(
+      "https://vijay-urlshortner-backend.herokuapp.com/longURL",
+      {
+        method: "POST",
+        body: JSON.stringify(data1),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      }
+    );
     var data = await req.json();
     if (data.message == "Data Inserted") {
       GetLinks();
@@ -86,14 +92,17 @@ async function DataInsert() {
 
 async function GetLinks() {
   var bodydata = { email: email };
-  var data = await fetch("http://localhost:3000/getlongURL", {
-    method: "POST",
-    body: JSON.stringify(bodydata),
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: token,
-    },
-  });
+  var data = await fetch(
+    "https://vijay-urlshortner-backend.herokuapp.com/getlongURL",
+    {
+      method: "POST",
+      body: JSON.stringify(bodydata),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    }
+  );
   var result = await data.json();
   let len = result.length;
   var tr = document.createElement("tr");
@@ -128,14 +137,17 @@ async function UpdateCount(longurl) {
   try {
     var bodydata = { longURL: longurl, email: email };
     console.log(bodydata);
-    var res = await fetch("http://localhost:3000/longURL", {
-      method: "PUT",
-      body: JSON.stringify(bodydata),
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-    });
+    var res = await fetch(
+      "https://vijay-urlshortner-backend.herokuapp.com/longURL",
+      {
+        method: "PUT",
+        body: JSON.stringify(bodydata),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      }
+    );
     var data = await res.json();
 
     if (data.message == "Data Updated") {
