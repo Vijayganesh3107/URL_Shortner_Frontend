@@ -42,6 +42,6 @@ async function RegisterUser() {
   if (data.message != "User Already with same Registered Email-ID") {
     alert3.classList.remove("displaynone");
     localStorage.setItem("JWToken", `${token}Email${email.value}`);
-    location.href = "auth.html";
+    // location.href = "auth.html";
   }
 }

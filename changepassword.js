@@ -5,7 +5,7 @@ var alert1 = document.querySelector(".alert1");
 var alert2 = document.querySelector(".alert2");
 var alert3 = document.querySelector(".alert3");
 var email = localStorage.getItem("ValidateEmail");
-console.log(email);
+var passwordtoken = localStorage.getItem("PasswordToken");
 submitbtn.addEventListener("click", () => {
   if (password.value !== repassword.value) {
     alert1.classList.remove("displaynone");
@@ -25,14 +25,16 @@ submitbtn.addEventListener("click", () => {
 async function ChangePassword() {
   var bodydata = {
     password: password.value,
+    email,
   };
   var req = await fetch(
-    `https://vijay-urlshortner-backend.herokuapp.com/user/changepassword/${email}`,
+    `https://vijay-urlshortner-backend.herokuapp.com/user/changepassword/${passwordtoken}`,
     {
       method: "PUT",
       body: JSON.stringify(bodydata),
       headers: {
         "Content-Type": "application/json",
+        Authorization: passwordtoken,
       },
     }
   );

@@ -22,6 +22,10 @@ async function ValidateEmail() {
   console.log(data);
   if (data.message == "User Present") {
     localStorage.setItem("ValidateEmail", email.value);
-    location.href = "changepassword.html";
+    alert("password has been sent to the registered email");
+    localStorage.getItem("PasswordToken", data.token);
+    // location.href = "changepassword.html";
+  } else {
+    alert(data.message);
   }
 }
