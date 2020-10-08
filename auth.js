@@ -8,7 +8,7 @@ async function Auth() {
   var bodydata = { email: email };
   var p = document.getElementById("p");
   var req = await fetch(
-    `https://vijay-urlshortner-backend.herokuapp.com/${email}`,
+    `https://vijay-urlshortner-backend.herokuapp.com/users/auth/${email}`,
     {
       method: "PUT",
       body: JSON.stringify(bodydata),
