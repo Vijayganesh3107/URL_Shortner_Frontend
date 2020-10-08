@@ -1,4 +1,7 @@
-var email = localStorage.getItem("JWToken");
+var sessiondata = localStorage.getItem("JWToken");
+
+var email = sessiondata.split("Email")[1];
+var token = sessiondata.split("Email")[0];
 console.log("Email:", email);
 
 async function Auth() {
